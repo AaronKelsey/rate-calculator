@@ -3,7 +3,7 @@
 
 You need to install the following tools
 
--   JDK 1.8+
+-   JDK 9+
 -   Maven 3.1+
 
 ## How to build the application:
@@ -30,3 +30,4 @@ mvn test
 
 ## Improvements
 - Use BigDecimal for greater precision.
+- Pass lender information CSV file as program argument.

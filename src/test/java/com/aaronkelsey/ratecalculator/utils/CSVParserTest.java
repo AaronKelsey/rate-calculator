@@ -9,11 +9,27 @@ import java.util.List;
 public class CSVParserTest {
     private final String errorMessage = "Failed to read market information.";
 
+    private static final List<Lender> EXPECTED_LENDERS = List.of(
+            new Lender("Bob", 0.075, 640),
+            new Lender("Jane", 0.069, 480),
+            new Lender("Fred", 0.071, 520),
+            new Lender("Mary", 0.104, 170),
+            new Lender("John", 0.081, 320),
+            new Lender("Dave", 0.074, 140),
+            new Lender("Angela", 0.071, 60));
+
     @Test
     public void CSVParser_loadsAllLenders_Success() throws FailedToReadLenderInformationException {
         String csvFilename = "LenderInformation.csv";
         List<Lender> lenderListCSV = CSVParser.parse(csvFilename);
         Assertions.assertEquals(7, lenderListCSV.size());
+    }
+
+    @Test
+    public void CSVParser_returnsLenderListWithCorrectContent_Success() throws FailedToReadLenderInformationException {
+        String csvFilename = "LenderInformation.csv";
+        List<Lender> lenderListCSV = CSVParser.parse(csvFilename);
+        Assertions.assertEquals(EXPECTED_LENDERS, lenderListCSV);
     }
 
     @Test
